@@ -21,27 +21,32 @@ const Login = ({ onLogin }) => {
   };
 
   return (
-    <div className="login">
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <input
-          type="text"
-          placeholder="Usuário"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Senha"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Entrar</button>
-      </form>
-
-      <p>
-        Não tem uma conta? <Link to="/signup">Crie aqui</Link>
-      </p>
+    <div className="login-container">
+      <div className="login-card">
+        <h2 className="login-title">Login</h2>
+        <form onSubmit={handleLogin} className="login-form">
+          <input
+            type="text"
+            className="login-input"
+            placeholder="Usuário"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            type="password"
+            className="login-input"
+            placeholder="Senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="submit" className="login-button">
+            Entrar
+          </button>
+        </form>
+        <p className="signup-link">
+          Não tem uma conta? <Link to="/signup">Crie aqui</Link>
+        </p>
+      </div>
     </div>
   );
 };

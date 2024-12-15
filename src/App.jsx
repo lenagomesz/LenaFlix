@@ -14,6 +14,7 @@ import SearchBar from "./SearchBar";
 import Menu from "./Menu";
 import Favorites from "./Favorites";
 import Footer from "./Footer";
+import Profile from "./Profile";
 import Login from "./Login";
 import Signup from "./Signup";
 import "./App.css";
@@ -97,6 +98,7 @@ const App = () => {
             <Route path="/" element={<Navigate to="/login" />} />
             <Route path="/login" element={<Login onLogin={login} />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         ) : (
           <>
@@ -108,7 +110,7 @@ const App = () => {
                 <Filter onFilter={handleFilter} />
 
                 <Link to="/favorites">
-                  <button className="favorites-button">Favoritos</button>
+                  <button className="ffilter-button">Favoritos</button>
                 </Link>
               </div>
             </header>
@@ -136,6 +138,7 @@ const App = () => {
                 path="/favorites"
                 element={<Favorites favorites={favorites} />}
               />
+              <Route path="/profile" element={<Profile />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
             <Footer />

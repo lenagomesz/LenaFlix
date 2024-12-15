@@ -1,11 +1,17 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Menu = ({ onLogout, isAuthenticated }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleLogout = () => {
+    onLogout();
+    navigate("/login");
   };
 
   return (
@@ -22,7 +28,14 @@ const Menu = ({ onLogout, isAuthenticated }) => {
             {isAuthenticated ? (
               <>
                 <li>
-                  <button onClick={onLogout}>Deslogar</button>
+                  <Link to="/profile">Perfil</Link>
+                </li>
+                <li>
+                  <Link to="/favorites">Favoritos</Link>
+                </li>
+
+                <li>
+                  <button onClick={handleLogout}>Deslogar</button>
                 </li>
               </>
             ) : (

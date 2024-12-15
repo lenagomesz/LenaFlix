@@ -4,39 +4,42 @@ import { useNavigate } from "react-router-dom";
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // Hook de navegação
+  const navigate = useNavigate();
 
   const handleSignup = (e) => {
     e.preventDefault();
 
-    // Armazenando os dados do usuário no localStorage
     const user = { username, password };
     localStorage.setItem("user", JSON.stringify(user));
 
     alert("Usuário cadastrado com sucesso!");
-
-    // Redireciona para a tela de login
     navigate("/login");
   };
 
   return (
-    <div className="signup">
-      <h2>Cadastro</h2>
-      <form onSubmit={handleSignup}>
-        <input
-          type="text"
-          placeholder="Usuário"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Senha"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Cadastrar</button>
-      </form>
+    <div className="signup-container">
+      <div className="signup-card">
+        <h2 className="signup-title">Cadastro</h2>
+        <form onSubmit={handleSignup} className="signup-form">
+          <input
+            type="text"
+            className="signup-input"
+            placeholder="Usuário"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            type="password"
+            className="signup-input"
+            placeholder="Senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="submit" className="signup-button">
+            Cadastrar
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

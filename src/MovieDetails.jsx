@@ -64,7 +64,7 @@ const MovieDetails = ({ toggleFavorite, favorites }) => {
   };
 
   const handleShare = async () => {
-    const pageUrl = window.location.href; // Obtém o link da página atual
+    const pageUrl = window.location.href;
     try {
       if (navigator.share) {
         await navigator.share({
