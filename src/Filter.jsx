@@ -1,5 +1,5 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { FaFilter } from "react-icons/fa";
 
 const Filter = ({ onFilter }) => {
   const [isOpen, setIsOpen] = useState(false);
