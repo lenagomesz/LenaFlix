@@ -4,10 +4,21 @@ import { useNavigate } from "react-router-dom";
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const handleSignup = (e) => {
     e.preventDefault();
+
+    if (!username.trim()) {
+      setErrorMessage("O nome de usuário não pode estar em branco.");
+      return;
+    }
+
+    if (password.length < 8) {
+      setErrorMessage("A senha deve ter pelo menos 8 caracteres.");
+      return;
+    }
 
     const user = { username, password };
     localStorage.setItem("user", JSON.stringify(user));
@@ -35,6 +46,7 @@ const Signup = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
           <button type="submit" className="signup-button">
             Cadastrar
           </button>

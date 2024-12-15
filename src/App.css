@@ -96,21 +96,6 @@ h1 {
   border-bottom: 1px solid #444;
 }
 
-.favorites-button {
-  background-color: #e50914;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  padding: 10px 15px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.favorites-button:hover {
-  background-color: #b00711;
-}
-
 .movie-carousel {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -174,6 +159,7 @@ h1 {
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-right: 10px;
 }
 
 .filter-button:hover {
@@ -184,6 +170,7 @@ h1 {
 .filter-button:active {
   background-color: #c40812;
   transform: scale(0.95);
+  margin-right: 10px;
 }
 
 @media (max-width: 600px) {
@@ -302,39 +289,85 @@ button:disabled {
   }
 }
 .profile-container {
-  padding: 20px;
-  max-width: 500px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.profile-info {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: black;
+  padding: 20px;
 }
 
-.profile-info label {
-  font-weight: bold;
+.profile-container h2 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 20px;
 }
 
-.profile-info input {
-  padding: 10px;
-  font-size: 14px;
+.profile-container .profile-info {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
   width: 100%;
+  text-align: left;
+}
+
+.profile-container .profile-info div {
+  margin-bottom: 15px;
+}
+
+.profile-container label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.profile-container input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
   margin-top: 5px;
 }
 
-.profile-info button {
-  padding: 10px;
-  font-size: 16px;
+.profile-container input[type="file"] {
   margin-top: 10px;
-  cursor: pointer;
 }
 
-.profile-info img {
+.profile-container button {
+  background-color: #cc0808;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
   margin-top: 10px;
+}
+
+.profile-container img {
   border-radius: 50%;
+  margin-top: 10px;
+}
+
+.profile-container img[alt="Pré-visualização"] {
+  margin-top: 10px;
+  max-width: 100px;
+  border-radius: 50%;
+}
+
+.profile-container button:focus {
+  outline: none;
+}
+
+.profile-container input[type="text"]:focus,
+.profile-container input[type="file"]:focus {
+  border-color: #007bff;
 }
 .footer {
   background-color: #101010;
@@ -390,6 +423,7 @@ button:disabled {
   position: absolute;
   top: 50%;
   left: 50%;
+  color: black;
   transform: translate(-50%, -50%);
   width: 100%;
   max-width: 400px;
@@ -402,60 +436,271 @@ button:disabled {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 30px;
   width: 100%;
-  max-width: 400px;
 }
 
-.login-title,
-.signup-title {
-  font-size: 24px;
-  color: #333;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.login-form,
-.signup-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.login-input,
-.signup-input {
-  padding: 12px;
-  margin: 8px 0;
+.login-card input,
+.signup-card input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 5px;
 }
 
-.login-button,
-.signup-button {
-  padding: 12px;
-  margin-top: 10px;
+.login-card button,
+.signup-card button {
+  background-color: #e50914;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.login-card button:hover,
+.signup-card button:hover {
+  background-color: #ff4c51;
+}
+
+.login-card button:active,
+.signup-card button:active {
   background-color: #c40812;
+}
+
+.login-card a,
+.signup-card a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.login-card a:hover,
+.signup-card a:hover {
+  text-decoration: underline;
+}
+.movie-details-page {
+  font-family: Arial, sans-serif;
+  background-color: #141414;
+  color: #fff;
+  padding-bottom: 20px;
+}
+
+.movie-details-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #1c1c1c;
+  border-radius: 10px;
+}
+
+.movie-info {
+  flex: 1;
+  padding: 20px;
+  max-width: 600px;
+}
+
+.movie-title {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.movie-info-item {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.favorite-button,
+.share-button {
+  background-color: #e50914;
   color: white;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin-top: 15px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.favorite-button:hover,
+.share-button:hover {
+  background-color: #ff4c51;
+}
+
+.movie-banner {
+  max-width: 600px;
+  flex: 0.5;
+}
+
+.movie-backdrop {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.trailer-container {
+  margin-top: 20px;
+}
+
+.comments-section {
+  padding: 20px;
+  background-color: #1c1c1c;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.comment-form {
+  display: flex;
+  gap: 10px;
+}
+
+.comment-input {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #e50914;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+}
+
+.submit-comment-btn {
+  background-color: #e50914;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-size: 1rem;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.login-button:hover,
-.signup-button:hover {
-  background-color: #c40812;
+.comments-list {
+  list-style: none;
+  padding: 0;
 }
 
-.signup-link {
+.comment-item {
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+.back-button {
+  background-color: #141414;
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #e50914;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #e50914;
+}
+
+.filter {
+  position: relative;
+}
+
+.filter-button:hover {
+  background-color: #7c0107;
+}
+
+.filter-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.filter-window {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
-  margin-top: 10px;
-  color: #777;
+  width: 300px;
 }
 
-.signup-link a {
-  color: #c40812;
-  text-decoration: none;
+.filter-window button {
+  margin: 10px 0;
+  padding: 10px 20px;
+  background-color: #c40812;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+.favorites-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  padding: 20px;
 }
 
-.signup-link a:hover {
-  text-decoration: underline;
+.favorites-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+.favorites-card h2 {
+  font-size: 2rem;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.favorites-card p {
+  font-size: 1.2rem;
+  color: #0f0e0e;
+  margin-top: 15px;
+}
+
+.favorites-card ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.favorites-card li {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.favorites-card button {
+  background-color: #c40a0a;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.favorites-card button:hover {
+  background-color: #a30000;
+}
+
+.favorites-card button:focus {
+  outline: none;
 }

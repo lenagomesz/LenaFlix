@@ -86,10 +86,18 @@ const MovieDetails = ({ toggleFavorite, favorites }) => {
   if (!movie) return <div>Carregando...</div>;
 
   return (
-    <div className="movie-details">
-      <div className="movie-container">
+    <div className="movie-details-page">
+      <div className="movie-details-container">
         <div className="movie-info">
           <h2 className="movie-title">{movie.title}</h2>
+
+          <div className="movie-banner">
+            <img
+              src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+              alt={movie.title}
+              className="movie-backdrop"
+            />
+          </div>
 
           {trailer && (
             <div className="trailer-container">
@@ -105,17 +113,17 @@ const MovieDetails = ({ toggleFavorite, favorites }) => {
             </div>
           )}
 
-          <p>
+          <p className="movie-info-item">
             <strong>Ano:</strong> {movie.release_date.split("-")[0]}
           </p>
-          <p>
+          <p className="movie-info-item">
             <strong>Gênero:</strong>{" "}
             {movie.genres.map((genre) => genre.name).join(", ")}
           </p>
-          <p>
+          <p className="movie-info-item">
             <strong>Avaliação:</strong> {movie.vote_average}
           </p>
-          <p>
+          <p className="movie-info-item">
             <strong>Descrição:</strong> {movie.overview}
           </p>
 
@@ -134,34 +142,30 @@ const MovieDetails = ({ toggleFavorite, favorites }) => {
             Compartilhar
           </button>
         </div>
-        <div className="movie-banner">
-          <img
-            src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
-            alt={movie.title}
-            className="movie-backdrop"
-          />
-        </div>
       </div>
 
       <div className="comments-section">
         <h3>Comentários</h3>
-        <form onSubmit={handleCommentSubmit}>
+        <form onSubmit={handleCommentSubmit} className="comment-form">
           <input
             type="text"
             value={commentInput}
             onChange={(e) => setCommentInput(e.target.value)}
             placeholder="Escreva seu comentário..."
+            className="comment-input"
           />
-          <button type="submit">Enviar</button>
+          <button type="submit" className="submit-comment-btn">
+            Enviar
+          </button>
         </form>
-        <ul>
+        <ul className="comments-list">
           {fixedComments.map((comment, index) => (
-            <li key={index}>
+            <li key={index} className="comment-item">
               <strong>{comment.user}:</strong> {comment.text}
             </li>
           ))}
           {comments.map((comment, index) => (
-            <li key={index}>
+            <li key={index} className="comment-item">
               <strong>Você:</strong> {comment}
             </li>
           ))}

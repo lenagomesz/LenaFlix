@@ -1,5 +1,5 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
+import "./App.css";
 
 const Filter = ({ onFilter }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,14 +18,21 @@ const Filter = ({ onFilter }) => {
       <button className="filter-button" onClick={toggleDropdown}>
         Filtrar
       </button>
+
       {isOpen && (
-        <div className="filter-options">
-          <button onClick={() => handleSortChange("alphabetical")}>
-            Ordenar Alfabéticamente
-          </button>
-          <button onClick={() => handleSortChange("rating")}>
-            Filtrar por Número de Avaliações
-          </button>
+        <div className="filter-overlay">
+          <div className="filter-window">
+            <h3>Escolha um Filtro</h3>
+            <button onClick={() => handleSortChange("alphabetical")}>
+              Ordenar Alfabéticamente
+            </button>
+            <button onClick={() => handleSortChange("rating")}>
+              Filtrar por Número de Avaliações
+            </button>
+            <button className="close-button" onClick={() => setIsOpen(false)}>
+              Fechar
+            </button>
+          </div>
         </div>
       )}
     </div>
