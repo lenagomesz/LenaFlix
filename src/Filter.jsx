@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import "./App.css";
 
@@ -24,7 +25,7 @@ const Filter = ({ onFilter }) => {
           <div className="filter-window">
             <h3>Escolha um Filtro</h3>
             <button onClick={() => handleSortChange("alphabetical")}>
-              Ordenar Alfabéticamente
+              Ordenar Alfabeticamente
             </button>
             <button onClick={() => handleSortChange("rating")}>
               Filtrar por Número de Avaliações
